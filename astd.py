@@ -1,6 +1,7 @@
 # ABS
 import math
 
+
 class Unit:
     unit_list = []
     def __init__(self,age:int,name:str):
@@ -50,6 +51,22 @@ print(abs(d).hit_unit(m))
 # This is how You can create absolute Unit, rememba, there can only be one.
 # btw have You noticed d became the Absolute Unit class?
 print(type(d))
+
+# AITER NOW
+# ITS ASYNC ITERATOR, BUT WE CAN ALSO MAKE HIM OUR OWN THING
+
+class Thing(BaseException):
+    def __init__(self,*args,**kwargs):
+        print(f"i dont care about Your {':'.join([*args])} and {kwargs}")
+        print( "i can give you async iterator my boi, call aiter on me, i dare you")
+
+    def __aiter__(self):
+        return self
+
+    async def __anext__(self):
+        raise StopAsyncIteration
+a=Thing()
+aiter(a)
 
 
 
